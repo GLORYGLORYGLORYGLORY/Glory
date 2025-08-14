@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My First Web Page</title>
+    <style>
+      /* Simple styles so it looks clean on day 2 */
+      :root { --max: 720px; }
+      body { font-family: system-ui, Arial, sans-serif; line-height: 1.6; margin: 0; }
+      header { background: #111; color: #fff; padding: 24px 16px; }
+      main { max-width: var(--max); margin: 0 auto; padding: 24px 16px; }
+      h1 { margin: 0 0 8px; }
+      a { text-decoration: none; }
+      nav a { color: #fff; margin-right: 16px; }
+      .card { border: 1px solid #ddd; border-radius: 10px; padding: 16px; }
+      footer { max-width: var(--max); margin: 24px auto; padding: 16px; color: #666; font-size: 14px; }
+      button { padding: 10px 14px; border-radius: 8px; border: 1px solid #ccc; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Hi, I’m <span id="your-name">Omar Eshlan</span> 👋</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about" class="card">
+        <h2>About Me</h2>
+        <p>I’m starting my journey to become a software developer. This is my very first web page.</p>
+        <p>Goals: learn to code daily, build projects, and help real clients.</p>
+        <button id="hello-btn">Click me</button>
+        <p id="hello-msg" style="margin-top:8px;"></p>
+      </section>
+
+      <section id="contact" class="card" style="margin-top:16px;">
+        <h2>Contact Me</h2>
+        <form onsubmit="return false;">
+          <label>
+            Name<br />
+            <input id="name" type="text" placeholder="Your name" />
+          </label>
+          <br /><br />
+          <label>
+            Message<br />
+            <textarea id="message" rows="3" placeholder="Say hi"></textarea>
+          </label>
+          <br /><br />
+          <button id="send-btn">Send (demo)</button>
+          <p id="form-status" style="color:#0a7; font-weight:600;"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> My First Project</p>
+    </footer>
+
+    <script>
+      // Tiny JS so you see interaction on Day 2
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const helloBtn = document.getElementById('hello-btn');
+      const helloMsg = document.getElementById('hello-msg');
+      helloBtn.addEventListener('click', () => {
+        helloMsg.textContent = 'You clicked the button! 🚀';
+      });
+
+      const sendBtn = document.getElementById('send-btn');
+      const status = document.getElementById('form-status');
+      sendBtn.addEventListener('click', () => {
+        const name = document.getElementById('name').value.trim();
+        const msg = document.getElementById('message').value.trim();
+        if (!name) {
+          status.style.color = '#c00';
+          status.textContent = 'Please enter your name.';
+          return;
+        }
+        status.style.color = '#0a7';
+        status.textContent = `Thanks, ${name}! (Demo only — not sending anywhere yet)`;
+        console.log({ name, msg }); // You’ll see this in DevTools console
+      });
+    </script>
+  </body>
+</html>
