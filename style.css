@@ -8,7 +8,9 @@ body {
 h1 {
   color: #007acc;
 }
-
+p {
+  color: #007acc; 
+}
 a {
   color: #007acc;
   text-decoration: none;
