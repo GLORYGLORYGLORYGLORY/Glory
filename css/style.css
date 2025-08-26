@@ -8,14 +8,31 @@ body {
 h1 {
   color: #007acc;
 }
+
 p {
   color: #007acc; 
 }
+
 a {
   color: #9200cc;
   text-decoration: none;
 }
 
 a:hover {
+  text-decoration: underline;
+}
+
+nav {
+  background: #333;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a:hover {
   text-decoration: underline;
 }
